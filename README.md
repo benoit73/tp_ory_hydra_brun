@@ -6,29 +6,29 @@
 
 ### 1. Cloner le dépôt d'Ory Hydra
 
-git clone https://github.com/ory/hydra.git
-cd hydra
-git checkout v2.3.0
+- git clone https://github.com/ory/hydra.git
+- cd hydra
+- git checkout v2.3.0
 
 ### 2. Démarrer l’API Flask
 
 Dans un autre dossier :
 
-git clone https://github.com/benoit73/tp_ory_hydra_brun.git
-cd tp_ory_hydra_brun
-python3 app.py
+- git clone https://github.com/benoit73/tp_ory_hydra_brun.git
+- cd tp_ory_hydra_brun
+- python3 app.py
 
 ### 3. Démarrer les services Hydra avec Docker Compose
 
-cd ../hydra
-docker compose -f quickstart.yml \
+- cd ../hydra
+- docker compose -f quickstart.yml \
   -f quickstart-postgres.yml \
   up \
   --build
 
 ### 4. Enregistrer une nouvelle application (notre API)
 
-docker compose -f quickstart.yml exec hydra \
+- docker compose -f quickstart.yml exec hydra \
   hydra create oauth2-client \
   --endpoint http://127.0.0.1:4445/ \
   --id my-api-client \
@@ -38,7 +38,7 @@ docker compose -f quickstart.yml exec hydra \
 
 ### 5. Générer un JWT
 
-curl -X POST http://localhost:4444/oauth2/token \
+- curl -X POST http://localhost:4444/oauth2/token \
   -u my-api-client:my-api-secret \
   -d "grant_type=client_credentials" \
   -d "scope=openid"
@@ -46,7 +46,7 @@ curl -X POST http://localhost:4444/oauth2/token \
 Copiez le token (access_token) renvoyé dans la réponse JSON.
 ### 6. Faire une requête à l’API Flask avec le token
 
-curl -H "Authorization: Bearer <monToken>" http://localhost:5000/protected
+- curl -H "Authorization: Bearer <monToken>" http://localhost:5000/protected
 
 ## 🧠 Comment ça marche ?
 
