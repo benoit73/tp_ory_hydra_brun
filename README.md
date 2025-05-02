@@ -46,7 +46,7 @@ Dans un autre dossier :
 Copiez le token (access_token) renvoyé dans la réponse JSON.
 ### 6. Faire une requête à l’API Flask avec le token
 
-- curl -H "Authorization: Bearer <monToken>" http://localhost:5000/protected
+- curl -H "Authorization: Bearer leTokenRecupéréPrécédemment" http://localhost:5000/protected
 
 ## 🧠 Comment ça marche ?
 
